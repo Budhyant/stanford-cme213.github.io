@@ -14,6 +14,7 @@ gcloud compute instances create ${NAME} \
     --machine-type n1-standard-2 \
     --accelerator type=${GPU_TYPE},count=${GPU_NUM} \
     --image-family ubuntu-1804-lts --image-project ubuntu-os-cloud \
+    --boot-disk-size 20GB\
     --maintenance-policy TERMINATE --restart-on-failure \
     --metadata startup-script='#!/bin/bash 
         # Check for CUDA and try to install.
@@ -50,8 +51,6 @@ gcloud compute instances create ${NAME} \
           echo "export PATH=/usr/local/cuda-10.2/bin:/usr/local/cuda-10.2/NsightCompute-2019.1${PATH:+:${PATH}}" >> /etc/profile
           echo "export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 " >> /etc/profile
-
-          apt-get install cuda-toolkit-10-2 -y
 
           # Setup auto shutdown
           wget -O /bin/auto_shutdown.sh https://raw.githubusercontent.com/stanford-cme213/stanford-cme213.github.io/master/gcp/auto_shutdown.sh

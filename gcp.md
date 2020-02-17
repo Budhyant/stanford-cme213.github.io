@@ -267,3 +267,4 @@ This will greatly simplify the process of reading and modifying source files in 
 * [Machine types](https://cloud.google.com/compute/docs/machine-types)
 * [Instance pricing](https://cloud.google.com/compute/vm-instance-pricing)
 * [VM images](https://cloud.google.com/compute/docs/images)
+* [Startup script](https://cloud.google.com/compute/docs/startupscript)
