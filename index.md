@@ -47,6 +47,9 @@ This class will give hands-on experience with programming multicore processors, 
 * [Homework 3](Homework/hw3.pdf) and [starter code](Homework/code_hw3.zip)
 * [Homework 4](Homework/hw4.pdf) and [starter code](Homework/code_hw4.zip)
 
+### Final Project
+* [Final Report Handout Part 1](Homework/FinalProjectPart1.pdf)
+
 ### Google Cloud Platform 
 * [Google Cloud Platform setup instructions](./gcp.html)
 * [VM instances information page](https://console.cloud.google.com/compute)
