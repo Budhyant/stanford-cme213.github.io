@@ -113,11 +113,11 @@ gcloud compute instances create ${NAME} \
 
       # Installing files for the final project start up code
       echo "[STARTUP SCRIPT] Setting the script to install the start up code"
-      echo "#!/bin/bash" > /usr/bin/download_startup_code
-      echo "wget https://github.com/stanford-cme213/stanford-cme213.github.io/raw/master/Code/final_project.zip" >> /usr/bin/download_startup_code
-      echo "unzip final_project.zip" >> /usr/bin/download_startup_code
-      echo "rm final_project.zip" >> /usr/bin/download_startup_code
-      chmod ugo+x /usr/bin/download_startup_code
+      echo "#!/bin/bash" > /usr/bin/download_starter_code
+      echo "wget https://github.com/stanford-cme213/stanford-cme213.github.io/raw/master/Code/final_project.zip" >> /usr/bin/download_starter_code
+      echo "unzip final_project.zip" >> /usr/bin/download_starter_code
+      echo "rm final_project.zip" >> /usr/bin/download_starter_code
+      chmod ugo+x /usr/bin/download_starter_code
 
       # Clean up 
       echo "[STARTUP SCRIPT] apt autoremove"
@@ -144,7 +144,7 @@ echo "Installing necessary libraries. You will be able to log into the VM after 
 $ gcloud compute ssh ${NAME}
 The installation takes time. We are installing MPI, CUDA, and downloading all the files needed for the project.
 After logging on the instance, please run on the VM
-$ download_startup_code
+$ download_starter_code
 This will download some source files in final_project/ to get you started.
 The MNIST data files are in /data.
 You can check the status of your instance at 
