@@ -105,7 +105,9 @@ $$a = \sigma(z)$$
 ---
 class: center, middle
 
-![:width 40%](2020-02-20-10-57-42.png)
+![:width 35%](2020-02-20-10-57-42.png)
+
+We will use sigmoid
 
 ---
 class: center, middle
@@ -209,7 +211,7 @@ class: center, middle
 ---
 class: center, middle
 
-![](2020-02-20-11-55-40.png)
+![:width 80%](2020-02-20-11-55-40.png)
 
 ---
 class: center, middle
@@ -265,7 +267,7 @@ class: middle
 
 - Training set: optimize DNN parameters
 - Test set: optimize regularization
-- Validation set: [optional] can be used to adjust the hyperparameters of the network
+- Validation set [optional]: can be used to adjust the hyperparameters of the network
 
 ---
 class: center, middle
@@ -380,7 +382,7 @@ class: center, middle
 
 # Model parallelism 
 
-Much more complicated to understand but implementation has same complexity as previous approach
+Much more complicated to understand but implementation is not more difficult than previous approach
 
 ---
 class: center, middle
@@ -399,7 +401,7 @@ class: center, middle
 
 You have not seen the details yet. So, it will be hard to follow.
 
-The take-home message is that no communication is required between nodes.
+The take-home message is that no MPI communication is required between nodes.
 
 ---
 class: center, middle
@@ -418,4 +420,9 @@ class: center, middle
 
 No communication is required during the backpropagation
 
-This implementation will be much more efficient
+This implementation is much more efficient
+
+---
+class: center, middle
+
+![:width 20%](2020-02-21-13-00-07.png)
