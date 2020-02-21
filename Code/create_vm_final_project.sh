@@ -140,7 +140,7 @@ gcloud compute instances create ${NAME} \
     fi
     '
 
-echo "\nInstalling necessary libraries. You will be able to log into the VM after several minutes with:
+echo "Installing necessary libraries. You will be able to log into the VM after several minutes with:
 $ gcloud compute ssh ${NAME}
 The installation takes time. We are installing MPI, CUDA, and downloading all the files needed for the project.
 After logging on the instance, please run on the VM
