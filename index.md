@@ -52,6 +52,7 @@ This class will give hands-on experience with programming multicore processors, 
 ### Final Project
 * [Final Report Handout Part 1](Homework/FinalProjectPart1.pdf)
 * [Final Report Handout Part 2](Homework/FinalProjectPart2.pdf)
+* [Script to create VM with 1 GPU](Code/create_vm_final_project_1gpu.sh) and [Script to create VM with 4 GPU](Code/create_vm_final_project_4gpu.sh)
 * [Starter Code](Code/final_project.zip)
 
 ### Google Cloud Platform 
