@@ -51,6 +51,8 @@ This class will give hands-on experience with programming multicore processors, 
 
 ### Final Project
 * [Final Report Handout Part 1](Homework/FinalProjectPart1.pdf)
+* [Final Report Handout Part 2](Homework/FinalProjectPart2.pdf)
+* [Starter Code](Code/final_project.zip)
 
 ### Google Cloud Platform 
 * [Google Cloud Platform setup instructions](./gcp.html)
