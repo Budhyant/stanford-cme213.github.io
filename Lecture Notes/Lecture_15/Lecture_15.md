@@ -65,11 +65,9 @@ class: center, middle
 ---
 class: center, middle
 
-Hillis&ndash;Steele algorithm
+ Algorithm 2: Hillis&ndash;Steele
 
-Main idea
-
-Concurrent tree reductions
+ Main idea: concurrent tree reductions
 
 ---
 class: center, middle
@@ -79,9 +77,9 @@ class: center, middle
 ---
 class: center, middle
 
-Number of passes: $\log_2 n$ vs $2 \log_2 n$
+ Number of passes: $\log_2 n$ vs $2 \log_2 n$
 
-Amount of work: ~ $\log_2 n$ x sequential flops
+ Amount of work: ~ $\log_2 n$ x sequential flops
 
 ---
 class: center, middle
@@ -89,6 +87,13 @@ class: center, middle
 When a lot of processors are available, Hillis&ndash;Steele algorithm is superior
 
 Shorter span vs work-efficient
+
+---
+class: center, middle
+
+# Game time
+
+![:width 30%](2020-02-25-14-55-56.png)
 
 ---
 class: center, middle
