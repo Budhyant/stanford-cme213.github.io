@@ -23,6 +23,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [NVIDIA CUDA optimization guest lecture](Lecture Notes/CME213_2020_CUDA_Optimization.pdf)
 * [NVIDIA CUDA profiler guest lecture](Lecture Notes/CME213_2020_Profiler.pdf)
 * [Lecture 14](Lecture Notes/Lecture_14/Lecture_14.html)
+* [Lecture 15](Lecture Notes/Lecture_15/Lecture_15.html)
 
 ### Videos
 * [Lecture 1](https://youtu.be/mmJ__Ygexos)
