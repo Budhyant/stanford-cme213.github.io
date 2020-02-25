@@ -102,7 +102,7 @@ class: middle
 
 Download the code from class web page:
 
-[generate_sequence.cpp](URL)
+[generate_sequence.cpp](https://raw.githubusercontent.com/stanford-cme213/stanford-cme213.github.io/master/Code/generate_sequence.cpp)
 
 Compile and run
 
