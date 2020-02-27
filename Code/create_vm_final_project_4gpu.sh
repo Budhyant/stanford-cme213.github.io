@@ -102,7 +102,7 @@ gcloud compute instances create ${NAME} \
 
       # Install Armadillo
       echo "[STARTUP SCRIPT] Downloading Armadillo Library"
-      wget -O armadillo-7.800.2.tar.xz http://sourceforge.net/projects/arma/files/armadillo-7.800.2.tar.xz.ancient
+      wget -O armadillo-7.800.2.tar.xz http://sourceforge.net/projects/arma/files/armadillo-7.800.2.tar.xz
       tar xvfJ armadillo-7.800.2.tar.xz
       cd armadillo-7.800.2
       ./configure
