@@ -24,6 +24,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [NVIDIA CUDA profiler guest lecture](Lecture Notes/CME213_2020_Profiler.pdf)
 * [Lecture 14](Lecture Notes/Lecture_14/Lecture_14.html)
 * [Lecture 15](Lecture Notes/Lecture_15/Lecture_15.html)
+* [Lecture 16](Lecture Notes/Lecture_16/Lecture_16.html)
 
 ### Videos
 * [Lecture 1](https://youtu.be/mmJ__Ygexos)
