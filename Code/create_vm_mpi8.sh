@@ -11,6 +11,7 @@ gcloud config set compute/zone ${ZONE}
 gcloud compute instances create ${NAME} \
     --machine-type n1-highcpu-8 \
     --image-family ubuntu-1804-lts --image-project ubuntu-os-cloud \
+    --boot-disk-size 40GB \
     --maintenance-policy TERMINATE --restart-on-failure \
     --metadata startup-script='#!/bin/bash
 
