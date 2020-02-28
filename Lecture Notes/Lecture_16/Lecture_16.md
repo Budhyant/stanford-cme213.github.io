@@ -339,6 +339,23 @@ Mostly same as before. One new argument:
 `status` data structure that contains information about the message that was received
 
 ---
+class: middle
+
+```
+if (rank != MASTER) {
+    int tag = i;
+    int rc = MPI_Send(&my_pi, 1, MPI_DOUBLE,
+                    MASTER, tag, MPI_COMM_WORLD);
+} else {
+    for (int n = 1; n < numprocs; n++) {
+        int rc = MPI_Recv(&pirecv, 1, MPI_DOUBLE, MPI_ANY_SOURCE,
+                        tag, MPI_COMM_WORLD, &status);
+        pisum += pirecv;
+    }
+}
+```
+
+---
 class: center, middle
 
 # Rules and order
@@ -350,7 +367,7 @@ Order: messages are delivered in the order in which they have been sent.
 ---
 class: center, middle
 
-If a sender sends two messages of the same type one after another to the same receiver, the MPI runtime system ensures that the first message sent is always received first. 
+If a sender sends two messages of the same type<br> one after another to the same receiver,<br>the MPI runtime system ensures<br> that the first message sent<br>is always received first. 
 
 ---
 class: center, middle
@@ -407,6 +424,11 @@ Three key issues:
 ---
 class: center, middle
 
+# Let's review the main functions
+
+---
+class: center, middle
+
 ```
 MPI_Bcast(&buffer,count,datatype,root,comm)
 ```
@@ -435,6 +457,11 @@ https://computing.llnl.gov/tutorials/mpi/
 class: center, middle
 
 ![:width 100%](2020-02-28-10-33-14.png)
+
+---
+class: center, middle
+
+[mpi_prime.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_16/mpi_prime.cpp)
 
 ---
 class: middle
@@ -500,7 +527,7 @@ class: center, middle
 MPI_Allgather(&sendbuf,sendcount,sendtype,&recvbuf,recvcount,recvtype,comm)
 ```
 
-![:width 40%](2020-02-28-11-04-00.png)
+![:width 50%](2020-02-28-11-04-00.png)
 
 ---
 class: center, middle
@@ -509,7 +536,7 @@ class: center, middle
 MPI_Allreduce(&sendbuf,&recvbuf,count,datatype,op,comm)
 ```
 
-![:width 40%](2020-02-28-11-33-31.png)
+![:width 50%](2020-02-28-11-33-31.png)
 
 ---
 class: center, middle
@@ -522,12 +549,17 @@ $$p \leftarrow p - \alpha \nabla J_p$$
 
 Each process has a partial $\nabla J_p$
 
-`MPI_Allreduce` to get all complete gradient on all processors
+`MPI_Allreduce` to get the complete gradient on all processors
 
 ---
 class: center, middle
 
 ![:width 80%](2020-02-28-11-22-39.png)
+
+---
+class: center, middle
+
+[proc_min_value.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_16/proc_min_value.cpp)
 
 ---
 class: middle
