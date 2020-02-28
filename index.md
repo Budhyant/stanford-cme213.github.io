@@ -40,6 +40,7 @@ This class will give hands-on experience with programming multicore processors, 
 * Lecture 11-13: NVIDIA CUDA lectures
 * [Lecture 14](https://youtu.be/3KGq4RMi62I)
 * [Lecture 15](https://youtu.be/_irHzJxdGIk)
+* [Lecture 16](https://youtu.be/1Gsxon9eqPU)
 
 ### Office Hours
 * Wednesday 7-9PM; TA led; Huang 304
