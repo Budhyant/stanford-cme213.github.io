@@ -52,6 +52,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [Homework 2](Homework/hw2.pdf) and [Radix Sort Tutorial](Homework/RadixSortTutorial.pdf) and [starter code](Homework/code_hw2.zip)
 * [Homework 3](Homework/hw3.pdf) and [starter code](Homework/code_hw3.zip)
 * [Homework 4](Homework/hw4.pdf) and [starter code](Homework/code_hw4.zip)
+* [Homework 5](Homework/hw5.pdf) and [starter code](Homework/code_hw5.zip)
 
 ### Final Project
 * [Final Report Handout Part 1](Homework/FinalProjectPart1.pdf)
