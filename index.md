@@ -44,6 +44,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [Lecture 15](https://youtu.be/_irHzJxdGIk)
 * [Lecture 16](https://youtu.be/1Gsxon9eqPU)
 * [CUDA visual profiling tutorial](https://youtu.be/zSWwj5tG5CY)
+* [Lecture 17](https://youtu.be/Stc8Gc9n4ws)
 
 ### Office Hours
 * Wednesday 7-9PM; TA led; Huang 304
