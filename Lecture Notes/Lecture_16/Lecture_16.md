@@ -102,7 +102,7 @@ class: middle
 
 - OpenMPI: [www.open-mpi.org](https://www.open-mpi.org/)<br>(what we use for the GCP VM)
 - MVAPICH: [mvapich.cse.ohio-state.edu](http://mvapich.cse.ohio-state.edu/)
-- MPICH: [https://www.mpich.org/](www.mpich.org)
+- MPICH: [www.mpich.org](https://www.mpich.org/)
 
 ---
 class: center, middle
