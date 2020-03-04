@@ -448,3 +448,83 @@ class: center, middle
 $$ p = \Theta \left( \Big[\frac{n}{\log n}\Big]^2 \right) $$
 
 is the right answer!
+
+---
+class: middle
+
+In the matrix-vector algorithm we did a couple of non-trivial things:
+
+- broadcast data inside a matrix column
+- reduce inside a matrix row
+
+---
+class: center, middle
+
+Core concept: collective comms on a subset of processors
+
+---
+class: center, middle
+
+Groups!
+
+Communicators!
+
+---
+class: center, middle
+
+# Group
+
+A group of process used for communication
+
+---
+class: center, middle
+
+# Communicator
+
+Used to exchange data between processes in the same `group`
+
+---
+class: middle
+
+MPI provides over 40 routines related to groups, communicators, and virtual topologies!
+
+```
+int MPI_Comm_group(MPI_Comm comm, MPI_Group *group)
+```
+Returns group associated with communicator, e.g., `MPI_COMM_WORLD`
+
+---
+class: middle
+
+```
+int MPI_Group_incl(MPI_Group group, int p, int *ranks, MPI_Group *new_group)
+```
+
+Creates `new_group` with `p` processes.
+
+`ranks` contains the ranks of processes to appear in `new_group`
+
+---
+class: middle
+
+```
+int MPI_Comm_create(MPI_Comm comm, MPI_Group group, MPI_Comm *new_comm)
+```
+
+New communicator based on `group`.
+
+See MPI code: `groups/`
+
+---
+class: middle
+
+```
+int ranks1[4]= {0,1,2,3}, ranks2[4]= {4,5,6,7};
+
+MPI_Group_incl(world_group, NPROCS/2, ranks1, &sub_group[0]);
+MPI_Group_incl(world_group, NPROCS/2, ranks2, &sub_group[1]);
+
+MPI_Comm_create(MPI_COMM_WORLD, sub_group[mygroup], &sub_group_comm);
+
+MPI_Allreduce(&sendbuf, &recvbuf, 1, MPI_INT, MPI_SUM, sub_group_comm);
+```
