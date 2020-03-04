@@ -24,12 +24,17 @@ $$ b = A x $$
 ---
 class: center, middle
 
-![](2020-03-03-09-07-15.png)
+![:width 80%](2020-03-04-12-45-34.png)
 
 ---
 class: center, middle
 
 # Strategy 1: row partitioning
+
+---
+class: center, middle
+
+![](2020-03-03-09-07-15.png)
 
 ---
 class: center, middle
@@ -51,13 +56,13 @@ Step 2: local product; no communication
 class: middle
 
 ```
-/* Gather entire vector b on each processor using Allgather */
+// Gather entire vector b on each processor using Allgather
 MPI_Allgather(&bloc[0], nlocal, MPI_FLOAT, &b[0], nlocal, MPI_FLOAT,
             MPI_COMM_WORLD);
 // sending nlocal and receiving nlocal from any other process
 
-/* Perform the matrix-vector multiplication involving the
-locally stored submatrix. */
+// Perform the matrix-vector multiplication involving the
+// locally stored submatrix.
 for(int i=0; i<nlocal; i++) {
     for(int j=0; j<n; j++) {
         x[i] += a[i*n+j] * b[j];
@@ -137,7 +142,7 @@ Step 3: local matrix-vector product
 ---
 class: center, middle
 
-![](2020-03-03-09-22-23.png)
+![](2020-03-04-12-51-28.png)
 
 ---
 class: center, middle
@@ -156,7 +161,7 @@ class: center, middle
 
 In addition, we can assign a process per block
 
-More processes can be used compared to row/column partitioning
+**More processes** can be used compared to row/column partitioning
 
 ---
 class: center, middle
@@ -166,7 +171,7 @@ How can we quantify this improvement?
 ---
 class: center, middle
 
-Basic concepts in parallel program efficiency
+# Basic concepts in parallel program efficiency
 
 ---
 class: middle
@@ -184,9 +189,9 @@ Breakdown down:
 ---
 class: center, middle
 
-$T_1(n)$ execution time in serial
+# Speedup
 
-Speedup
+$T_1(n)$ execution time in serial
 
 $$ S = \frac{T_1(n)}{T_p(n)} $$
 
@@ -195,14 +200,14 @@ class: center, middle
 
 $$ S = \frac{T_1(n)}{T_p(n)} $$
 
-Ideally $S \sim p$
+Ideally: $S \sim p$
 
 ---
 class: center, middle
 
 # Amdahl's law
 
-$$ S_p(n) \sim \frac{T_1(n)}{f T_1(n) + (1-f) T_p(n) / p} $$
+$$ S_p(n) \sim \frac{T_1(n)}{f T_1(n) + (1-f) T_1(n) / p} $$
 
 $$ S_p(n) \sim \frac{1}{f + (1-f) / p} \le \frac{1}{f} $$
 
@@ -249,6 +254,8 @@ class: center, middle
 
 Better is to plot the efficiency
 
+Speedup divided by $p$
+
 $$ E_p(n) = \frac{S_p(n)}{p} = \frac{T_1(n)}{p T_p(n)} $$
 
 ---
@@ -280,6 +287,11 @@ Let's apply these ideas to matrix-vector multiplications and see which algorithm
 class: center, middle
 
 We need to estimate the running time of communication
+
+---
+class: center, middle
+
+# Collective communication
 
 ---
 class: center, middle
@@ -325,7 +337,11 @@ $$T_p(n) = \alpha \frac{n^2}{p} + \beta \ln p + \gamma n$$
 ---
 class: middle
 
-Efficiency:
+$$T_1(n) = \alpha n^2$$
+
+$$p T_p = \alpha n^2 + \beta p \ln p + \gamma p n$$
+
+Efficiency: $ E = T_1 / (p T_p)$
 
 $$E_p(n) = \frac{1}{1 + (\beta/\alpha) p \ln p / n^2 + (\gamma/\alpha) p/n} $$
 
@@ -343,6 +359,8 @@ $$ E_p(n) = \frac{1}{1 + (\beta/\alpha) p \ln p / n^2 + (\gamma/\alpha) p/n} $$
 
 If $p = \Theta(n)$, $E_p(n) = $ constant.
 
+Proof: $p \ln p / n^2 \to 0$, and $p/n = $ constant
+
 ---
 class: center, middle
 
@@ -359,6 +377,8 @@ Send $b$ to diagonal
 
 $\beta + \gamma \frac{n}{\sqrt{p}}$
 
+$\sqrt{p}$ because of block partition
+
 ---
 class: middle
 
@@ -369,6 +389,8 @@ $(\beta + \gamma \frac{n}{\sqrt{p}}) \log \sqrt{p}$
 Reduction across column
 
 $(\beta + \gamma \frac{n}{\sqrt{p}}) \log \sqrt{p}$
+
+$\log \sqrt{p}$ because of collective communication
 
 ---
 class: center, middle
@@ -400,7 +422,7 @@ Higher iso-efficiency plot is better
 
 This means we can maintain the same efficiency but for a larger number of processors
 
-The code runs faster
+The code runs faster!
 
 ---
 class: center, middle
@@ -427,7 +449,7 @@ Take $\beta (p^{1/2} \log p)/n = $ constant &rArr;
 $$ p = \Theta \left( \frac{n^2}{(\log n)^2} \right) $$
 
 ---
-class: center, middle
+class: center
 
 $$ p = \Theta \left( \frac{n^2}{\log n} \right) $$
 
@@ -435,7 +457,9 @@ Or
 
 $$ p = \Theta \left( \frac{n^2}{(\log n)^2} \right) $$
 
-Pick the most stringent
+--
+
+<br><br>Answer: choose the most stringent
 
 ---
 class: center, middle
@@ -474,7 +498,7 @@ class: center, middle
 
 # Group
 
-A group of process used for communication
+A group of processes used for communication
 
 ---
 class: center, middle
@@ -484,9 +508,13 @@ class: center, middle
 Used to exchange data between processes in the same `group`
 
 ---
-class: middle
+class: center, middle
 
 MPI provides over 40 routines related to groups, communicators, and virtual topologies!
+
+---
+class: middle
+
 
 ```
 int MPI_Comm_group(MPI_Comm comm, MPI_Group *group)
