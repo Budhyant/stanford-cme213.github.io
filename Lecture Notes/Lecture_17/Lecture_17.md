@@ -19,12 +19,12 @@ class: center, middle
 
 Matrix-vector product
 
-$$ b = A x $$
+$$ x = A b $$
 
 ---
 class: center, middle
 
-![:width 80%](2020-03-04-12-45-34.png)
+![:width 80%](2020-03-04-13-11-15.png)
 
 ---
 class: center, middle
@@ -128,7 +128,7 @@ class: center, middle
 ---
 class: center, middle
 
-![](2020-03-03-09-21-15.png)
+![](2020-03-04-13-13-01.png)
 
 ---
 class: center, middle
@@ -440,13 +440,13 @@ class: center, middle
 
 $$ E_p(n) = \frac{1}{1 + \alpha (p \log p) / n^2 + \beta (p^{1/2} \log p)/n} $$
 
-$\alpha (p \log p) / n^2 = $ constant &rArr;
+<br>
 
-$$ p = \Theta \left( \frac{n^2}{\log n} \right) $$
+$\alpha (p \log p) / n^2 = $ constant &rArr; $ p = \Theta \left( \frac{n^2}{\log n} \right) $
 
-Take $\beta (p^{1/2} \log p)/n = $ constant &rArr;
+<br>
 
-$$ p = \Theta \left( \frac{n^2}{(\log n)^2} \right) $$
+$\beta (p^{1/2} \log p)/n = $ constant &rArr; $ p = \Theta \left( \frac{n^2}{(\log n)^2} \right) $
 
 ---
 class: center
