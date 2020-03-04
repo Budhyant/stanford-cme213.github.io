@@ -513,7 +513,7 @@ int MPI_Comm_create(MPI_Comm comm, MPI_Group group, MPI_Comm *new_comm)
 
 New communicator based on `group`.
 
-See MPI code: `groups/`
+[mpi_group.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_17/mpi_group.cpp)
 
 ---
 class: middle
