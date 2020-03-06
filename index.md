@@ -27,6 +27,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [Lecture 16](Lecture Notes/Lecture_16/Lecture_16.html)
 * [CUDA visual profiling tutorial](Tutorial Notes/Tutorial_02.pdf) and [code](Tutorial Notes/reduction.zip)
 * [Lecture 17](Lecture Notes/Lecture_17/Lecture_17.html)
+* [Lecture 18](Lecture Notes/Lecture_18/Lecture_18.html)
 
 ### Videos
 * [Lecture 1](https://youtu.be/mmJ__Ygexos)
