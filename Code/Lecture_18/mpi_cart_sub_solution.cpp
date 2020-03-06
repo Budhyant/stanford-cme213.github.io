@@ -34,42 +34,35 @@ int main(int argc, char *argv[])
     // Create a Cartesian topology
 
     MPI_Comm comm_3d;
-
-    // int MPI_Cart_create(MPI_Comm comm_old, int ndims, const int dims[],
-    //                     const int periods[], int reorder, MPI_Comm * comm_cart)
-    // reorder = 0 means keep the original rank ordering
     MPI_Cart_create(MPI_COMM_WORLD, 3, dims, periods, 0, &comm_3d);
 
-    // int MPI_Comm_rank( MPI_Comm comm, int *rank )
     int my3drank;
     MPI_Comm_rank(comm_3d, &my3drank); // new rank in Cartesian grid
 
-    printf("[%1d] rank = %1d\n", my_rank, my3drank);
-
-    assert(my_rank == my3drank);
-
-    // MPI_Cart_coords(MPI_Comm comm, int rank, int maxdims, int coords[]
     int coords[3];
     MPI_Cart_coords(comm_3d, my3drank, 3, coords); // coordinates in topology
 
-    printf("[%1d] coords = (%1d, %1d, %1d)\n", my_rank, coords[0], coords[1], coords[2]);
+    int data = -1;
 
-    // Coordinates of process next to me along the k axis
-    int neighbor[3] = {coords[0], coords[1], coords[2] + 1};
-    int rank_neighbor = 0;
-    // int MPI_Cart_rank(MPI_Comm comm, const int coords[], int *rank)
-    MPI_Cart_rank(comm_3d, neighbor, &rank_neighbor);
-
-    printf("[%1d] rank neighbor = %1d\n", my_rank, rank_neighbor);
-
-    if (coords[2] != q - 1)
+    if (coords[0] == 0)
     {
-        assert(rank_neighbor == my_rank + 1);
+        data = coords[1] * q + coords[2];
     }
-    else
-    {
-        assert(rank_neighbor == my_rank - q + 1);
-    }
+
+    int keep_dims[3] = {1, 0, 0};
+    // int MPI_Cart_sub(MPI_Comm comm, const int keep_dims[], MPI_Comm * newcomm)
+    // keep_dims = 1 if kept in subgrid
+    MPI_Comm comm_i;
+    MPI_Cart_sub(comm_3d, keep_dims, &comm_i);
+
+    int rank_root = 0;
+
+    // int MPI_Bcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm)
+    MPI_Bcast(&data, 1, MPI_INT, rank_root, comm_i);
+
+    printf("(%1d,%1d,%1d) data = %2d\n", coords[0], coords[1], coords[2], data);
+
+    assert(data == coords[1] * q + coords[2]);
 
     MPI_Finalize();
 

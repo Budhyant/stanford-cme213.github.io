@@ -92,3 +92,33 @@ class: center, middle
 We need a grid topology.
 
 Arranges all processes logically on a 3D grid $(i,j,k)$.
+
+---
+class: center, middle
+
+# Exercise
+
+[mpi_cart.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_cart.cpp)
+
+Use the `mpi8` VM on GCP
+
+All the files are in the [Code/Lecture_18](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_18) folder
+
+---
+class: middle
+
+Next step is to create sub-groups of processes for the collective communications.
+
+We will need 4 types of sub-groups:
+
+1. $(\*,\*,k)$
+2. $(\*,j,k)$
+3. $(i,\*,k)$
+4. $(i,j,\*)$ (for the final reduction over $k$)
+
+---
+class: center, middle
+
+Let's do a broadcast inside along the $i$ axis.
+
+We need groups of the type $(\*,j,k)$.

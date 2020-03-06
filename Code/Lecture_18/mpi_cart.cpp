@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
+#include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -27,7 +29,7 @@ int main(int argc, char *argv[])
     }
 
     int dims[3] = {q, q, q};    // Dimension of 3D grid of processes
-    int periods[3] = {0, 0, 0}; // Whether or not our grid is periodic (wrap-around)
+    int periods[3] = {1, 1, 1}; // Whether or not our grid is periodic (wrap-around)
 
     // Create a Cartesian topology
 
@@ -35,6 +37,7 @@ int main(int argc, char *argv[])
 
     // int MPI_Cart_create(MPI_Comm comm_old, int ndims, const int dims[],
     //                     const int periods[], int reorder, MPI_Comm * comm_cart)
+    // reorder = 0 means keep the original rank ordering
     // TODO
 
     // int MPI_Comm_rank( MPI_Comm comm, int *rank )
@@ -43,12 +46,30 @@ int main(int argc, char *argv[])
 
     printf("[%1d] rank = %1d\n", my_rank, my3drank);
 
+    assert(my_rank == my3drank);
+
     // MPI_Cart_coords(MPI_Comm comm, int rank, int maxdims, int coords[]
     int coords[3];
     // TODO
-    // coordinates in topology
 
     printf("[%1d] coords = (%1d, %1d, %1d)\n", my_rank, coords[0], coords[1], coords[2]);
+
+    // Coordinates of process next to me along the k axis
+    int neighbor[3] = {coords[0], coords[1], coords[2] + 1};
+    int rank_neighbor = 0;
+    // int MPI_Cart_rank(MPI_Comm comm, const int coords[], int *rank)
+    // TODO
+
+    printf("[%1d] rank neighbor = %1d\n", my_rank, rank_neighbor);
+
+    if (coords[2] != q - 1)
+    {
+        assert(rank_neighbor == my_rank + 1);
+    }
+    else
+    {
+        assert(rank_neighbor == my_rank - q + 1);
+    }
 
     MPI_Finalize();
 
