@@ -199,6 +199,13 @@ class: middle
 
 [mpi_scatter.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_scatter.cpp)
 
-To dos:
+To do: `MPI_Scatterv` from $(0,0,0)$ to $(\*,\*,0)$
 
-- `MPI_Scatterv` from $(0,0,0)$ to $(i,j,0)$
+---
+class: middle
+
+# Exercise
+
+[mpi_gather.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_gather.cpp)
+
+To do: `MPI_Gatherv` from $(\*,\*,0)$ to $(0,0,0)$
