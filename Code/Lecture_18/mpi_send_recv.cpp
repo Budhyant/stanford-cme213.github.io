@@ -47,11 +47,14 @@ int main(int argc, char *argv[])
     if (coords[1] != 0 && coords[2] == 0)
     {
         // Sending from (i,j,0) to (i,j,j)
+        // i = coords[0]
+        // j = coords[1]
+        // k = coords[2]
 
         data = coords[0] * q + coords[1];
 
         // Coordinates of receiving process
-        int recv_coords[3] = {coords[0], coords[1], coords[1]};
+        int recv_coords[3] = {0, 0, 0}; // TODO
         int recv_rank;
         MPI_Cart_rank(comm_3d, recv_coords, &recv_rank);
 
@@ -61,8 +64,13 @@ int main(int argc, char *argv[])
     }
     else if (coords[1] == coords[2] && coords[2] != 0)
     {
+        // Receiving from (i,j,0)
+        // i = coords[0]
+        // j = coords[1]
+        // k = coords[2]
+
         // Coordinates of sending process
-        int send_coords[3] = {coords[0], coords[1], 0};
+        int send_coords[3] = {0, 0, 0}; // TODO
         int send_rank;
         MPI_Cart_rank(comm_3d, send_coords, &send_rank);
 

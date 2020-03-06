@@ -169,3 +169,25 @@ class: middle
 To dos:
 
 - Reduce from all $(\*,j,k)$ to $(0,j,k)$.
+
+---
+class: middle
+
+# Exercise
+
+[mpi_send_recv.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_send_recv.cpp)
+
+To dos:
+
+- Get coordinates of $(i,j,j)$.
+- $(i,j,0)$: send to $(i,j,j)$.
+- Get coordinates of $(i,j,0)$.
+- $(i,j,j)$: receive from $(i,j,0)$.
+
+---
+class: middle
+
+Final part is `MPI_Scatterv` and `MPI_Gatherv`
+
+- $(0,0,0)$ needs to send $a\_{ij}$ and $b\_{ij}$ to $(i,j,0)$
+- All $(i,j,0)$ need to send $c_{ij}$ to $(0,0,0)$.
