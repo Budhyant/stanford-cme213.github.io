@@ -189,8 +189,8 @@ class: middle
 
 Final part is `MPI_Scatterv` and `MPI_Gatherv`
 
-- $(0,0,0)$ needs to send $a\_{ij}$ and $b\_{ij}$ to $(i,j,0)$
-- All $(i,j,0)$ need to send $c_{ij}$ to $(0,0,0)$.
+- $(0,0,0)$ needs to send $a\_{ij}$ and $b\_{ij}$ to $(\*,\*,0)$
+- All $(\*,\*,0)$ need to send $c_{ij}$ to $(0,0,0)$.
 
 ---
 class: middle

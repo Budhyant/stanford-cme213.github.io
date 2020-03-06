@@ -56,12 +56,12 @@ int main(int argc, char *argv[])
     MPI_Datatype blocktype;        // MPI user data type corresponding to one block in the matrix
     MPI_Datatype blk_type_resized; // Extent of data type modified; used as the extent unit by displs
 
-    // Data type for a block of size 2 x 2 and with matrix size 4 x 4
+    // Data type for a block of dimension 2 x 2 and with matrix dimension 4 x 4
     const int block_dim = 2;
     const int matrix_dim = 4;
     const int block_size = 4; // block_dim x block_dim
     MPI_Type_vector(block_dim, block_dim, matrix_dim, MPI_INT, &blocktype);
-    // Changing the extent and making it equal to block_size
+    // Changing the extent and making it equal to block_dim
     MPI_Type_create_resized(blocktype, 0, sizeof(int) * block_dim, &blk_type_resized);
     MPI_Type_commit(&blk_type_resized);
 
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < q; i++)
         for (int j = 0; j < q; j++)
         {
-            displs[i * q + j] = i * matrix_dim + j; // Index of block to send; in units of block_size
+            displs[i * q + j] = i * matrix_dim + j; // Index of block to send; in units of block_dim
             counts[i * q + j] = 1;                  // We send only one block to each rank
         }
 
@@ -87,6 +87,11 @@ int main(int argc, char *argv[])
         // int MPI_Gatherv(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
         //                 void *recvbuf, const int *recvcounts, const int *displs,
         //                 MPI_Datatype recvtype, int root, MPI_Comm comm)
+        // "const void *sendbuf" is data_local
+        // "int sendcount" is block_size
+        // "void *recvbuf" is data
+        // "const int *recvcounts" is counts
+        // "MPI_Datatype recvtype" is blk_type_resized
         // TODO
 
         if (coords[0] == 0 && coords[1] == 0)
