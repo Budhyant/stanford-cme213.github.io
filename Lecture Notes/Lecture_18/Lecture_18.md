@@ -197,11 +197,8 @@ class: middle
 
 # Exercise
 
-[mpi_send_recv.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_send_recv.cpp)
+[mpi_scatter.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_scatter.cpp)
 
 To dos:
 
-- Get coordinates of $(i,j,j)$.
-- $(i,j,0)$: send to $(i,j,j)$.
-- Get coordinates of $(i,j,0)$.
-- $(i,j,j)$: receive from $(i,j,0)$.
+- `MPI_Scatterv` from $(0,0,0)$ to $(i,j,0)$
