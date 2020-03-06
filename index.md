@@ -24,10 +24,10 @@ This class will give hands-on experience with programming multicore processors, 
 * [NVIDIA CUDA profiler guest lecture](Lecture Notes/CME213_2020_Profiler.pdf)
 * [Lecture 14](Lecture Notes/Lecture_14/Lecture_14.html)
 * [Lecture 15](Lecture Notes/Lecture_15/Lecture_15.html)
-* [Lecture 16](Lecture Notes/Lecture_16/Lecture_16.html)
+* [Lecture 16](Lecture Notes/Lecture_16/Lecture_16.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_16)
 * [CUDA visual profiling tutorial](Tutorial Notes/Tutorial_02.pdf) and [code](Tutorial Notes/reduction.zip)
-* [Lecture 17](Lecture Notes/Lecture_17/Lecture_17.html)
-* [Lecture 18](Lecture Notes/Lecture_18/Lecture_18.html)
+* [Lecture 17](Lecture Notes/Lecture_17/Lecture_17.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_17)
+* [Lecture 18](Lecture Notes/Lecture_18/Lecture_18.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_18)
 
 ### Videos
 * [Lecture 1](https://youtu.be/mmJ__Ygexos)
@@ -46,6 +46,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [Lecture 16](https://youtu.be/1Gsxon9eqPU)
 * [CUDA visual profiling tutorial](https://youtu.be/zSWwj5tG5CY)
 * [Lecture 17](https://youtu.be/Stc8Gc9n4ws)
+* [Lecture 18](https://youtu.be/adBjJx4S-GI)
 
 ### Office Hours
 * Wednesday 7-9PM; TA led; Huang 304
