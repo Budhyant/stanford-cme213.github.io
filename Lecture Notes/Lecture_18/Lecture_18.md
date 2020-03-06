@@ -164,7 +164,7 @@ class: middle
 
 # Exercise
 
-[mpi_cart_sub.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_cart_sub.cpp)
+[mpi_reduce.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_reduce.cpp)
 
 To dos:
 
