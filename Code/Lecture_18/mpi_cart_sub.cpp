@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
 
     // int MPI_Bcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm)
     // Send buffer from root to all processes in comm
+    // "void *buffer" is data
     // TODO
 
     printf("(%1d,%1d,%1d) data = %2d\n", coords[0], coords[1], coords[2], data);

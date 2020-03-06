@@ -60,6 +60,8 @@ int main(int argc, char *argv[])
 
         // Send
         // int MPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm)
+        // "const void *buf" is data
+        // dest is recv_rank
         // TODO
     }
     else if (coords[1] == coords[2] && coords[2] != 0)
@@ -77,6 +79,9 @@ int main(int argc, char *argv[])
         // Send
         // int MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag,
         //              MPI_Comm comm, MPI_Status *status)
+        // "const void *buf" is data
+        // source is send_rank
+        // You can use MPI_STATUS_IGNORE for "MPI_Status *status"
         // TODO
 
         printf("(%1d,%1d,%1d) data = %2d\n", coords[0], coords[1], coords[2], data);

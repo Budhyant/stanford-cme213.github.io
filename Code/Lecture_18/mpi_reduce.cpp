@@ -53,6 +53,9 @@ int main(int argc, char *argv[])
 
     // int MPI_Reduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype,
     //                MPI_Op op, int root, MPI_Comm comm)
+    // MPI_Op is MPI_SUM
+    // "const void *sendbuf" is data
+    // "void *recvbuf" is data_result
     // TODO
 
     if (coords[0] == 0)

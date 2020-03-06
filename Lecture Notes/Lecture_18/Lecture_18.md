@@ -168,9 +168,7 @@ class: middle
 
 [mpi_reduce.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_18/mpi_reduce.cpp)
 
-To dos:
-
-- Reduce from all $(\*,j,k)$ to $(0,j,k)$.
+To do: reduce from all $(\*,j,k)$ to $(0,j,k)$.
 
 ---
 class: middle
@@ -181,9 +179,9 @@ class: middle
 
 To dos:
 
-- Get coordinates of $(i,j,j)$.
+- $(i,j,0)$: get coordinates of $(i,j,j)$.
 - $(i,j,0)$: send to $(i,j,j)$.
-- Get coordinates of $(i,j,0)$.
+- $(i,j,j)$: get coordinates of $(i,j,0)$.
 - $(i,j,j)$: receive from $(i,j,0)$.
 
 ---
