@@ -51,13 +51,14 @@ int main(int argc, char *argv[])
 
     int keep_dims[3] = {1, 0, 0};
     // int MPI_Cart_sub(MPI_Comm comm, const int keep_dims[], MPI_Comm * newcomm)
-    // keep_dims = 1 if kept in subgrid
+    // keep_dims = 1 if kept in subgrid; 0 otherwise
     MPI_Comm comm_i;
     // TODO
 
     int rank_root = 0;
 
     // int MPI_Bcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm)
+    // Send buffer from root to all processes in comm
     // TODO
 
     printf("(%1d,%1d,%1d) data = %2d\n", coords[0], coords[1], coords[2], data);

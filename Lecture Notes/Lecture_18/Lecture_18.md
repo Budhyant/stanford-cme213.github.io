@@ -14,6 +14,8 @@ class: center, middle
 
 # Homework 5: matrix-matrix products
 
+# Dekel–Nassimi–Sahni
+
 ---
 class: center, middle
 
@@ -42,7 +44,7 @@ class: center, middle
 
 Several steps are required
 
-Assume process 0 has matrix $A$ and $B$
+Assume process $(0,0,0)$ has matrix $A$ and $B$
 
 ---
 class: middle
@@ -52,7 +54,7 @@ class: middle
 3. $(i,j,j)$ broadcasts $a\_{ij}$ to $(i,\*,j)$, and $(i,j,i)$ broadcasts $b\_{ij}$ to $(\*,j,i)$
 4. Process $(i,j,k)$ computes $a\_{ik} b\_{kj}$.
 5. Reduction along $k$ axis: $(i,j,\*)$ &rarr; $(i,j,0)$
-6. Send result from all $(i,j,0)$ to $(0,0,0)$.
+6. Send result from all $(\*,\*,0)$ to $(0,0,0)$.
 
 ---
 class: middle
@@ -71,7 +73,7 @@ class: center, middle
 
 Scatter and broadcast are collective communications.
 
-But only a subset of processes are involved in the communication.
+However, only a subset of the processes is involved in the communication.
 
 ---
 class: middle
@@ -98,7 +100,7 @@ class: center, middle
 
 We need a grid topology.
 
-Arranges all processes logically on a 3D grid $(i,j,k)$.
+Arrange all processes logically on a 3D grid $(i,j,k)$.
 
 ---
 class: center, middle
@@ -138,7 +140,7 @@ We will need 4 types of sub-groups:
 ---
 class: center, middle
 
-Let's do a broadcast inside along the $i$ axis.
+Let's do a broadcast along the $i$ axis.
 
 We need groups of the type $(\*,j,k)$.
 

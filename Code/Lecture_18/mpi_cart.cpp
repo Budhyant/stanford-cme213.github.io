@@ -28,8 +28,10 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    int dims[3] = {q, q, q};    // Dimension of 3D grid of processes
-    int periods[3] = {1, 1, 1}; // Whether or not our grid is periodic (wrap-around)
+    int dims[3] = {q, q, q}; // Dimension of 3D grid of processes
+    int periods[3] = {1, 1, 1};
+    // Whether or not our grid is periodic (wrap-around)
+    // 1 means periodic; 0 means non-periodic
 
     // Create a Cartesian topology
 
@@ -37,10 +39,12 @@ int main(int argc, char *argv[])
 
     // int MPI_Cart_create(MPI_Comm comm_old, int ndims, const int dims[],
     //                     const int periods[], int reorder, MPI_Comm * comm_cart)
+    // ndims: size of dims
     // reorder = 0 means keep the original rank ordering
+    // comm_cart: new communicator
     // TODO
 
-    // int MPI_Comm_rank( MPI_Comm comm, int *rank )
+    // int MPI_Comm_rank( MPI_Comm comm, int *rank)
     int my3drank;
     // TODO
 
@@ -48,13 +52,13 @@ int main(int argc, char *argv[])
 
     assert(my_rank == my3drank);
 
-    // MPI_Cart_coords(MPI_Comm comm, int rank, int maxdims, int coords[]
+    // MPI_Cart_coords(MPI_Comm comm, int rank, int maxdims, int coords[])
     int coords[3];
     // TODO
 
     printf("[%1d] coords = (%1d, %1d, %1d)\n", my_rank, coords[0], coords[1], coords[2]);
 
-    // Coordinates of process next to me along the k axis
+    // Coordinates of next process along the k axis
     int neighbor[3] = {coords[0], coords[1], coords[2] + 1};
     int rank_neighbor = 0;
     // int MPI_Cart_rank(MPI_Comm comm, const int coords[], int *rank)
