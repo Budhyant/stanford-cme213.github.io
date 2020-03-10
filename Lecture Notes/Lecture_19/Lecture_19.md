@@ -284,6 +284,91 @@ class: center, middle
 ---
 class: center, middle
 
+Very easy to achieve with Send/Recv
+
+Send and Recv are both blocking
+
+Process will wait until communication completes
+
+---
+class: center, middle
+
+Process 0 | Process 1 | Deadlock
+--- | --- | ---
+Recv()<br>Send() | Recv()<br>Send() | .red[Always]
+Send()<br>Recv() | Send()<br>Recv() | Depends on whether a buffer is used or not
+Send()<br>Recv() | Recv()<br>Send() | .green[Secure]
+
+---
+class: center, middle
+
+Let's demonstrate these implementations on a ring communication example
+
+---
+class: center, middle
+
+![](2020-03-10-13-48-49.png)
+
+---
+class: center, middle
+
+# Deadlock
+
+---
+class: middle
+
+```
+...
+MPI_Recv(&number_recv, 1, MPI_INT, rank_sender,
+            0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+MPI_Send(&number_send, 1, MPI_INT, rank_receiver,
+            0, MPI_COMM_WORLD);
+...            
+```      
+
+---
+class: middle
+
+# Uncertain case
+
+```
+...
+MPI_Send(&number_send, 1, MPI_INT, rank_receiver,
+            0, MPI_COMM_WORLD);
+MPI_Recv(&number_recv, 1, MPI_INT, rank_sender,
+            0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+...            
+```
+
+---
+class: center, middle
+
+# Correct implementation
+
+---
+class: middle
+
+```
+if (rank % 2 == 0) {
+    MPI_Send(&number_send, 1, MPI_INT, rank_receiver,
+                0, MPI_COMM_WORLD);
+} else {
+    MPI_Recv(&number_recv, 1, MPI_INT, rank_sender,
+                0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+}
+
+if (rank % 2 == 1){
+    MPI_Send(&number_send, 1, MPI_INT, rank_receiver,
+                0, MPI_COMM_WORLD);
+} else {
+    MPI_Recv(&number_recv, 1, MPI_INT, rank_sender,
+                0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+}
+```
+
+---
+class: center, middle
+
 # Non-blocking MPI communications
 
 deadlock, buffering, synchronous communications, user-specified buffering, and ready send
