@@ -448,6 +448,11 @@ class: center, middle
 ![](2020-03-10-16-06-03.png)
 
 ---
+class: center, middle
+
+[gather_ring.cpp](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/gather_ring.cpp)
+
+---
 class: middle
 
 ```
@@ -465,6 +470,60 @@ for (int i = 0; i < nproc - 1; ++i) {
     // We need to wait; we cannot move forward until we have that data.
 }
 ```
+
+---
+class: center, middle
+
+# The key MPI routines
+
+---
+class: middle
+
+```
+int MPI_Isend(void* buf, int count,
+    MPI_Datatype datatype,
+    int dest, int tag,
+    MPI_Comm comm, MPI_Request *request)
+```    
+
+`MPI_Request*` used to get information later on about the status of that operation.
+
+[MPI_Isend](https://www.open-mpi.org/doc/v4.0/man3/MPI_Isend.3.php)
+
+---
+class: middle
+
+```
+int MPI_Irecv(void* buf, int count,
+	MPI_Datatype datatype,
+	int source, int tag,
+	MPI_Comm comm, MPI_Request *request)
+```
+
+[MPI_Irecv](https://www.open-mpi.org/doc/v4.0/man3/MPI_Irecv.3.php)
+
+---
+class: middle
+
+```
+int MPI_Test(MPI_Request *request, int *flag,
+	MPI_Status *status)
+```
+
+`flag` True if operation completed (logical)
+
+[MPI_Test](https://www.open-mpi.org/doc/v4.0/man3/MPI_Test.3.php)
+
+---
+class: middle
+
+```
+int MPI_Wait(MPI_Request *request, MPI_Status *status)
+```
+
+Waits for an MPI send or receive to complete
+
+[MPI_Wait](https://www.open-mpi.org/doc/v4.0/man3/MPI_Wait.3.php)
 
 ---
 class: center, middle
