@@ -314,6 +314,8 @@ class: center, middle
 
 # Deadlock
 
+[ring deadlock](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_DL.c)
+
 ---
 class: middle
 
@@ -331,6 +333,8 @@ class: middle
 
 # Uncertain case
 
+[non-secure case](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_NS.c)
+
 ```
 ...
 MPI_Send(&number_send, 1, MPI_INT, rank_receiver,
@@ -344,6 +348,8 @@ MPI_Recv(&number_recv, 1, MPI_INT, rank_sender,
 class: center, middle
 
 # Correct implementation
+
+[secure implementation](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_SEC.c)
 
 ---
 class: middle
