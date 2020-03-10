@@ -377,7 +377,94 @@ class: center, middle
 
 # Non-blocking MPI communications
 
-deadlock, buffering, synchronous communications, user-specified buffering, and ready send
+---
+class: center, middle
+
+# Blocking
+
+What we have seen so far
+
+Process waits until MPI command completes
+
+---
+class: middle
+
+# Advantages
+
+- Simple to use.
+- Issue command; once code returns, you know that the task is done (at least the resource is usable).
+- Efficient.
+
+However, this is too restrictive.
+
+---
+class: middle
+
+When communications are happening, you probably want to do something else, such as do some useful computation or issue other communications. 
+
+This is called overlapping communications and computations.
+
+---
+class: middle
+
+More generally, instead of blocking and wait for some data to perform the next task, you want to work on all the tasks for which data is available.
+
+Then, check periodically for status of communication.
+
+---
+class: middle
+
+Non-blocking communications are also safer and help avoid deadlocks.
+
+---
+class: middle
+
+# How to use non-blocking communications
+
+`MPI_Isend`
+
+`MPI_Irecv`
+
+`MPI_Test` and `MPI_Wait`
+
+---
+class: center, middle
+
+![:width 100%](2020-03-10-15-36-26.png)
+
+???
+
+- Explain how deadlock can easily occur in this setting
+- Instead explain how non-blocking communication can be used to manage all messages
+
+---
+class: center, middle
+
+# Gather ring example
+
+---
+class: center, middle
+
+![](2020-03-10-16-06-03.png)
+
+---
+class: middle
+
+```
+vector<MPI_Request> send_req(nproc - 1);
+for (int i = 0; i < nproc - 1; ++i) {
+    // Send to the right: Isend
+    int *p_send = &numbers[(rank - i + nproc) % nproc];
+    MPI_Isend(p_send, 1, MPI_INT, rank_receiver, 0, MPI_COMM_WORLD, 
+              &send_req[i]);
+    // We can proceed; no need to wait now.
+    // Receive from the left: Recv
+    int *p_recv = &numbers[(rank - i - 1 + nproc) % nproc];
+    MPI_Recv(p_recv, 1, MPI_INT, rank_sender, 0, 
+             MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    // We need to wait; we cannot move forward until we have that data.
+}
+```
 
 ---
 class: center, middle
