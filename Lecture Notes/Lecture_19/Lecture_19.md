@@ -530,9 +530,100 @@ class: center, middle
 
 # MPI send modes
 
+Optimization!
+
+![:width 20%](2020-03-10-16-18-11.png)
+
+---
+class: middle
+
+Three main algorithmic variants:
+
+1. `Buffered` MPI uses a buffer or not, to avoid blocking
+2. `Eager` MPI will try to send data immediately whether or not a `Recv` has been posted. Works well for small messages.
+3. `Rendez-vous` Send data only when `Recv` has been posted; buffering is not needed; requires a synchronization of the two processes
+
+---
+class: middle
+
+# MPI standard Send
+
+[MPI_Send](https://www.open-mpi.org/doc/v4.0/man3/MPI_Send.3.php)
+
+Message size | Strategy
+--- | ---
+Small messages | eager
+Large messages | rendez-vous
+
+User has no control
+
+---
+class: middle
+
+# Bsend
+
+Send with user-specified buffering &#124;
+[MPI_Bsend](https://www.open-mpi.org/doc/v4.0/man3/MPI_Bsend.3.php)
+
+```
+int MPI_Bsend(const void *buf, int count, MPI_Datatype datatype,
+    int dest, int tag, MPI_Comm comm)
+```
+
+Allows the user to send messages without worrying about whether they are buffered.
+
+The user must have provided buffer space using [MPI_Buffer_attach(void *buf, int size)](https://www.open-mpi.org/doc/v4.0/man3/MPI_Buffer_attach.3.php)
+
+---
+class: middle
+
+# Ssend
+
+Synchronous send; `rendez-vous` &#124;
+[MPI_Ssend](https://www.open-mpi.org/doc/v4.0/man3/MPI_Ssend.3.php)
+
+```
+int MPI_Ssend(const void *buf, int count, MPI_Datatype datatype, int dest,
+    int tag, MPI_Comm comm)
+```
+
+Blocks until buffer in sending task is free for reuse **and** destination process has started to receive message.
+
+Can be used to detect potential deadlocks hidden by MPI buffering
+
+---
+class: middle
+
+# Rsend
+
+Ready send; `eager` &#124;
+[MPI_Rsend](https://www.open-mpi.org/doc/v4.0/man3/MPI_Rsend.3.php)
+
+```
+int MPI_Rsend(const void *buf, int count, MPI_Datatype datatype, int dest,
+    int tag, MPI_Comm comm)
+```
+
+A ready send may only be called if the user can guarantee that a receive is already posted. 
+
+It is an error if the receive is not posted before the ready send is called.
+
+---
+class: center, middle
+
 Send Modes | MPI function | Completion Condition
 --- | --- | ---
 Standard send | `MPI_Send` | Message sent (receiver state unknown)
 Buffered send | `MPI_Bsend` | Always completes, irrespective of the receiver
-Ready send | `MPI_Rsend` | May be used only when the a matching receive has already been posted
 Synchronous send | `MPI_Ssend` | Only completes when the receive has completed
+Ready send | `MPI_Rsend` | May be used only when the matching receive has already been posted
+
+---
+class: middle
+
+# Useful resources
+
+- [LLNL tutorial](https://computing.llnl.gov/tutorials/mpi/)
+- [LLNL MPI performance](https://computing.llnl.gov/tutorials/mpi_performance/)
+- [MPI standard version 3.1](https://www.mpi-forum.org/docs/mpi-3.1/mpi31-report.pdf)
+- [Open MPI documentation](https://www.open-mpi.org/doc/v4.0/)
