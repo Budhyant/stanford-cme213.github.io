@@ -314,7 +314,7 @@ class: center, middle
 
 # Deadlock
 
-[ring deadlock](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_DL.c)
+[ring deadlock code](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_DL.c)
 
 ---
 class: middle
@@ -333,7 +333,7 @@ class: middle
 
 # Uncertain case
 
-[non-secure case](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_NS.c)
+[non-secure case code](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_NS.c)
 
 ```
 ...
@@ -349,7 +349,7 @@ class: center, middle
 
 # Correct implementation
 
-[secure implementation](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_SEC.c)
+[secure implementation code](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_SEC.c)
 
 ---
 class: middle
@@ -421,14 +421,16 @@ class: middle
 
 # How to use non-blocking communications
 
-`MPI_Isend`
+[MPI_Isend](https://www.open-mpi.org/doc/v4.0/man3/MPI_Isend.3.php)
 
-`MPI_Irecv`
+[MPI_Irecv](https://www.open-mpi.org/doc/v4.0/man3/MPI_Irecv.3.php)
 
-`MPI_Test` and `MPI_Wait`
+[MPI_Test](https://www.open-mpi.org/doc/v4.0/man3/MPI_Test.3.php) and [MPI_Wait](https://www.open-mpi.org/doc/v4.0/man3/MPI_Wait.3.php)
 
 ---
 class: center, middle
+
+# Motivating example
 
 ![:width 100%](2020-03-10-15-36-26.png)
 
