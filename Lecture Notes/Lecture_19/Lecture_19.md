@@ -274,7 +274,7 @@ The user cannot decide whether a buffer is used or not; the MPI library makes th
 ---
 class: center, middle
 
-![:width 80%](2020-03-11-13-09-27.png)
+![:width 80%](2020-03-11-13-11-31.png)
 
 ---
 class: center, middle
@@ -333,7 +333,7 @@ class: middle
 
 # Uncertain case
 
-[non-secure case code](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_NS.c)
+[non-secure code](https://github.com/stanford-cme213/stanford-cme213.github.io/blob/master/Code/Lecture_19/ring_NS.c)
 
 ```
 ...
@@ -402,7 +402,7 @@ class: middle
 
 When communications are happening, you probably want to do something else, such as do some useful computation or issue other communications. 
 
-This is called overlapping communications and computations.
+This is called overlapping communication and computation.
 
 ---
 class: middle
@@ -447,7 +447,7 @@ class: center, middle
 ---
 class: center, middle
 
-![](2020-03-10-16-06-03.png)
+![:width 80%](2020-03-10-16-06-03.png)
 
 ---
 class: center, middle
@@ -541,7 +541,7 @@ class: middle
 
 Three main algorithmic variants:
 
-1. `Buffered` MPI uses a buffer or not, to avoid blocking
+1. `Buffered` MPI uses a buffer to avoid blocking
 2. `Eager` MPI will try to send data immediately whether or not a `Recv` has been posted. Works well for small messages.
 3. `Rendez-vous` Send data only when `Recv` has been posted; buffering is not needed; requires a synchronization of the two processes
 
