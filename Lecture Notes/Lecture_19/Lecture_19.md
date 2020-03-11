@@ -55,8 +55,8 @@ class: middle
 
 Mapping relies on two concepts:
 
-1. Mapping: assign each to process to which hardware component
-2. Binding: restrict the motio of process between hardware components
+1. Mapping: assign process to hardware component
+2. Binding: restrict the motion of processes between hardware components
 
 ---
 class: center, middle
@@ -79,9 +79,9 @@ Does the process stay with the same hardware thread or is it allowed to migrate 
 ---
 class: center, middle
 
-# `bind-to`
+# `bind-to` options
 
-Get all options using `[mpirun -help]`
+Get all options using `$ mpirun -help`
 
 ---
 class: center, middle
@@ -169,7 +169,7 @@ class: center, middle
 ---
 class: center, middle
 
-VMs on GCP are virtual so architecture is hidden
+VMs on GCP are virtual so architecture is hidden.
 
 It can be queried using:
 
@@ -251,7 +251,7 @@ class: center, middle
 ---
 class: center, middle
 
-# Summary
+# Summary send/recv with buffering
 
 ---
 class: middle
@@ -274,7 +274,7 @@ The user cannot decide whether a buffer is used or not; the MPI library makes th
 ---
 class: center, middle
 
-![:width 70%](2020-03-10-12-29-51.png)
+![:width 80%](2020-03-11-13-09-27.png)
 
 ---
 class: center, middle
