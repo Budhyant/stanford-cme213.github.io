@@ -50,7 +50,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [CUDA visual profiling tutorial](https://youtu.be/zSWwj5tG5CY)
 * [Lecture 17](https://youtu.be/Stc8Gc9n4ws)
 * [Lecture 18](https://youtu.be/adBjJx4S-GI)
-* Lecture 19, the final project tutorial, and lecture 20 are on [canvas](https://canvas.stanford.edu/courses/110850/external_tools/5384) because of FERPA restrictions. An SUNet ID is required to access this material.
+* Lecture 19, the final project tutorial, and lecture 20 are on [canvas](https://canvas.stanford.edu/courses/110850/external_tools/5384) because of FERPA restrictions. An SUNet ID is required to access this material. The classes were done using [zoom](https://uit.stanford.edu/service/zoom) because of the [coronavirus](https://www.trackcorona.live/).
 
 ### Office Hours
 * Wednesday 7-9PM; TA led; Huang 304
