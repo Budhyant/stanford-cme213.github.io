@@ -29,6 +29,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [Lecture 17](Lecture Notes/Lecture_17/Lecture_17.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_17)
 * [Lecture 18](Lecture Notes/Lecture_18/Lecture_18.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_18)
 * [Lecture 19](Lecture Notes/Lecture_19/Lecture_19.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_19)
+* [Final Project Tutorial](Tutorial Notes/FinalProjectTutorial.pdf)
 * [TaskTorrent and task-based parallel computing](Lecture Notes/CME213_2020_TaskTorrent.pdf); [github repository](https://github.com/leopoldcambier/tasktorrent)
 
 ### Videos
@@ -49,6 +50,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [CUDA visual profiling tutorial](https://youtu.be/zSWwj5tG5CY)
 * [Lecture 17](https://youtu.be/Stc8Gc9n4ws)
 * [Lecture 18](https://youtu.be/adBjJx4S-GI)
+* Lecture 19, the final project tutorial, and lecture 20 are on [canvas](https://canvas.stanford.edu/courses/110850/external_tools/5384) because of FERPA restrictions. An SUNet ID is required to access this material.
 
 ### Office Hours
 * Wednesday 7-9PM; TA led; Huang 304
