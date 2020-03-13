@@ -29,6 +29,7 @@ This class will give hands-on experience with programming multicore processors, 
 * [Lecture 17](Lecture Notes/Lecture_17/Lecture_17.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_17)
 * [Lecture 18](Lecture Notes/Lecture_18/Lecture_18.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_18)
 * [Lecture 19](Lecture Notes/Lecture_19/Lecture_19.html) and [code](https://github.com/stanford-cme213/stanford-cme213.github.io/tree/master/Code/Lecture_19)
+* [TaskTorrent and task-based parallel computing](Lecture Notes/CME213_2020_TaskTorrent.pdf); [github repository](https://github.com/leopoldcambier/tasktorrent)
 
 ### Videos
 * [Lecture 1](https://youtu.be/mmJ__Ygexos)
