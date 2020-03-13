@@ -85,6 +85,18 @@ This class will give hands-on experience with programming multicore processors, 
 
 ### Reading and links
 
+#### MPI
+* [LLNL tutorial](https://computing.llnl.gov/tutorials/mpi/)
+* [LLNL MPI performance](https://computing.llnl.gov/tutorials/mpi_performance/)
+* [MPI standard version 3.1](https://www.mpi-forum.org/docs/mpi-3.1/mpi31-report.pdf)
+* [Open MPI documentation](https://www.open-mpi.org/doc/v4.0/)
+* [Mapping, Ranking, and Binding](https://www.open-mpi.org/doc/v4.0/man1/mpirun.1.php#sect9)
+
+Hwloc documentation:
+* [Hwloc tutorial slides](https://www-lb.open-mpi.org/projects/hwloc/tutorials/20160606-PATC-hwloc-tutorial.pdf)
+* [Open-mpi hwloc documentation page](https://www-lb.open-mpi.org/projects/hwloc/)
+* [Hwloc/lstopo examples](https://www.open-mpi.org/projects/hwloc/doc/v2.1.0/a00328.php#cli_examples)
+
 #### OpenMP
 * [OpenMP LLNL guide](https://computing.llnl.gov/tutorials/openMP/)
 * [OpenMP guide by Yliluoma](https://bisqwit.iki.fi/story/howto/openmp/)
